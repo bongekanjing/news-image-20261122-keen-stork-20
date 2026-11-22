@@ -1,4 +1,4 @@
-# One day, thirty-one stories, on one page
+# One day, forty-one stories, on one page
 
 [![make.fun · news-image-20261122](https://make.fun/badge/news-image-20261122.svg)](https://make.fun/bounty/news-image-20261122?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261122)
 [![rank](https://make.fun/badge/news-image-20261122/bongekanjing/news-image-20261122-keen-stork-20/rank.svg)](https://make.fun/bounty/news-image-20261122/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261122)
@@ -9,12 +9,12 @@ bounty asking for the day's world news in a single image.
 
 ## The page
 
-Thirty-one stories, seven continents-and-regions, laid out at three sizes. The three that
+Forty-one stories, seven continents-and-regions, laid out at three sizes. The three that
 matter most get a drawing, a headline and a short paragraph. The next ten get a drawing and a
-headline. The remaining eighteen get one line each, set two columns wide under the map.
+headline. The remaining twenty-eight get one line each, set two columns wide under the map.
 
 Reading order is by weight, not by column: the eye should be able to count three, then ten,
-then eighteen and stop, because that count is the editorial judgement the page is making.
+then twenty-eight and stop, because that count is the editorial judgement the page is making.
 Thirteen stories carry a number that appears twice - once on their card and once as a pin on
 the world map - so the map is a legend for the cards rather than decoration.
 
@@ -58,7 +58,7 @@ been truncated or resized, which is the failure that actually happens.
 | file | |
 | --- | --- |
 | `main.py` | verifies `entry.png` and copies it to the output directory |
-| `entry.png` | the page: 1024 by 1024, 146 KB |
+| `entry.png` | the page: 1024 by 1024, 166 KB |
 | `LICENSE` | MIT |
 
 ## Licence
