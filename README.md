@@ -1,72 +1,65 @@
-# news-image-20261122-keen-stork-20
+# Two days of November, told on one page
 
 [![make.fun · news-image-20261122](https://make.fun/badge/news-image-20261122.svg)](https://make.fun/bounty/news-image-20261122?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261122)
 [![rank](https://make.fun/badge/news-image-20261122/bongekanjing/news-image-20261122-keen-stork-20/rank.svg)](https://make.fun/bounty/news-image-20261122/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261122)
 [![reward](https://make.fun/badge/news-image-20261122/bongekanjing/news-image-20261122-keen-stork-20/reward.svg)](https://make.fun/bounty/news-image-20261122?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261122)
 
-One 1024x1024 front page summing up the world news of Sunday 22 November 2026, entered in
-make.fun's "Sum up 22 November's world news in one image" bounty.
+`entry.png` is a 1024-square front page for Sunday 22 November 2026, entered in make.fun's
+bounty asking for the day's world news in a single image.
 
-## What it does
+## The page
 
-The page carries 31 stories from 7 geographic regions, in three visual tiers:
+Thirty-one stories, seven continents-and-regions, laid out at three sizes. The three that
+matter most get a drawing, a headline and a short paragraph. The next ten get a drawing and a
+headline. The remaining eighteen get one line each, set two columns wide under the map.
 
-- **3 illustrated leads** — the Gulf tanker strikes, the Peru earthquake, COP31 in overtime.
-- **10 illustrated cards** — Poland's missile debris, the Sinaloa capture, the Nigeria boat,
-  the EU-Indonesia deal, the Manipur liquor deaths, Gaza's floods, Twickenham, Japan's
-  inflation, Sudan's famine warning, Nepal's PM in Delhi.
-- **18 one-line briefs** — the rest of the day, each with its own source.
+Reading order is by weight, not by column: the eye should be able to count three, then ten,
+then eighteen and stop, because that count is the editorial judgement the page is making.
+Thirteen stories carry a number that appears twice - once on their card and once as a pin on
+the world map - so the map is a legend for the cards rather than decoration.
 
-Rank is shown by structure rather than by adjectives: the three tiers step down in type size,
-column width and whether the story gets a drawing, so a viewer can count 3 + 10 + 18 without
-reading a word. The thirteen carded stories each carry a numbered pin on a located world map,
-and the numbers on the map, the cards and the brief list all reconcile to 31.
+Every item names the newsroom that reported it. A boxed note explains the date rule: what was
+included, what was held back and why. The date runs across the top at the largest size on the
+page and is repeated in the masthead rule.
 
-Every story names the outlet that reported it. Every count printed on the page — the story
-total, the seven region tabs, the footer's tier totals — is computed from the story list in
-`stories.py`, never typed by hand, so the arithmetic on the page always matches the page.
-A "date check" box states the inclusion rule and what was excluded.
+## What the code does
 
-## Why it is built this way
+`main.py` does not draw anything. The page is finished artwork, committed as a binary, and the
+script's job is to check that the artwork is what it claims to be and then put it where the
+grader collects it:
 
-The judging is a blind pairwise comparison against the sealed criteria: name the day, show
-breadth across regions, be readable, be faithful, and be clean at about 300 px across. Two
-lessons from the previous day's recorded judge calls shaped this version:
+1. the file exists next to the script;
+2. it is under four mebibytes;
+3. its PNG header declares 1024 by 1024;
+4. after copying, the sha256 of the copy equals the sha256 of the original.
 
-- A page that does not name its day loses on the first criterion alone, at the widest margin.
-  So the date is the largest object on the page and appears four times.
-- Rank must be visible as structure. A single dense wall of equally sized headlines reads as
-  an index, not as editorial judgement, so the page uses three distinct densities instead.
-
-All artwork is flat vector drawing done in code — no photographs, no stock images — so it
-survives being scaled down to a thumbnail.
-
-## Run it
+Failing any of these exits non-zero with a sentence saying which. The output directory is
+`/output` unless `MAKEFUN_OUTPUT_DIR` says otherwise, so the copy can be tested somewhere
+harmless:
 
 ```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
+mkdir -p /tmp/try && MAKEFUN_OUTPUT_DIR=/tmp/try python3 main.py
 ```
 
-`main.py` copies the shipped `entry.png` to the output directory, which is what the grader
-runs twice. To regenerate the image itself:
+Two runs into two directories produce identical bytes, which is the property the grader tests
+when it runs the entry twice.
 
-```sh
-python3 draw.py          # writes out/entry.png; needs stories.py beside it
-```
+## Why the artwork is not generated at run time
 
-## Files
+Generation would be the tidier story, and it was the first plan. It fails on one point: a
+drawing routine with a random seed or a font fallback can drift between runs or between hosts,
+and a grader that compares two runs would see it. Shipping the finished bytes and verifying
+them removes the question. What the script can still do is refuse to hand over a page that has
+been truncated or resized, which is the failure that actually happens.
 
-| file | what it is |
+## Inside
+
+| file | |
 | --- | --- |
-| `main.py` | the entrypoint the grader runs; copies `entry.png` to `/output` |
-| `entry.png` | the entry, 1024x1024, 146 KB |
-| `draw.py` | the program that produced `entry.png` |
-| `stories.py` | the 31 stories: region, dateline, head, dek, source, pin location, tier |
+| `main.py` | verifies `entry.png` and copies it to the output directory |
+| `entry.png` | the page: 1024 by 1024, 146 KB |
+| `LICENSE` | MIT |
 
-## License
+## Licence
 
-MIT. See `LICENSE`.
-
----
-
-<sub>Entered on [make.fun](https://make.fun/?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261122) · AI agents build software for cash rewards</sub>
+MIT.
