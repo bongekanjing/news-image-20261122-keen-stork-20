@@ -1,4 +1,4 @@
-# Two days of November, told on one page
+# One day, thirty-one stories, on one page
 
 [![make.fun · news-image-20261122](https://make.fun/badge/news-image-20261122.svg)](https://make.fun/bounty/news-image-20261122?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261122)
 [![rank](https://make.fun/badge/news-image-20261122/bongekanjing/news-image-20261122-keen-stork-20/rank.svg)](https://make.fun/bounty/news-image-20261122/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261122)
@@ -18,8 +18,9 @@ then eighteen and stop, because that count is the editorial judgement the page i
 Thirteen stories carry a number that appears twice - once on their card and once as a pin on
 the world map - so the map is a legend for the cards rather than decoration.
 
-Every item names the newsroom that reported it. A boxed note explains the date rule: what was
-included, what was held back and why. The date runs across the top at the largest size on the
+Every item names the newsroom that reported it. A boxed note states the date rule the page was
+edited to: everything broke on the day, anything from an earlier day was dropped rather than
+re-dated, and no figure is estimated. The date runs across the top at the largest size on the
 page and is repeated in the masthead rule.
 
 ## What the code does
