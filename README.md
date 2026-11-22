@@ -9,12 +9,12 @@ bounty asking for the day's world news in a single image.
 
 ## The page
 
-Forty-one stories, seven continents-and-regions, laid out at three sizes. The three that
+Forty-two stories, seven continents-and-regions, laid out at three sizes. The three that
 matter most get a drawing, a headline and a short paragraph. The next ten get a drawing and a
 headline. The remaining twenty-eight get one line each, set two columns wide under the map.
 
 Reading order is by weight, not by column: the eye should be able to count three, then ten,
-then twenty-eight and stop, because that count is the editorial judgement the page is making.
+then twenty-nine and stop, because that count is the editorial judgement the page is making.
 Thirteen stories carry a number that appears twice - once on their card and once as a pin on
 the world map - so the map is a legend for the cards rather than decoration.
 
@@ -58,7 +58,7 @@ been truncated or resized, which is the failure that actually happens.
 | file | |
 | --- | --- |
 | `main.py` | verifies `entry.png` and copies it to the output directory |
-| `entry.png` | the page: 1024 by 1024, 166 KB |
+| `entry.png` | the page: 1024 by 1024, 163 KB |
 | `LICENSE` | MIT |
 
 ## Licence
